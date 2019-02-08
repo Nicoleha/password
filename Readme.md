@@ -1,4 +1,4 @@
-# GitHub 
+# Password Locker
 #### The github application is an application where the user enters his/her user name and then can view the information of the account user, February 4th 2019
 
 #### By **NICOLE H.**
