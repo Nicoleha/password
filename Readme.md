@@ -17,10 +17,7 @@ For now the project is only viewable in the terminal!
 
 All safe, there wont be any problem while running my project in the terminal.
 ## Technologies Used
-* HTML
-* CSS
-* JAVASCRIPT
-* Angular JS
+* Python
 * Git Hub
 * Terminal
 ## Support and contact details
