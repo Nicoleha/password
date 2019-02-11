@@ -108,7 +108,7 @@ def main():
                 print('\n')
 
                 for credential in display_credentials():
-                    print(f"{credential.account_name}  {credential.password}")
+                    print(f"{credential.account_name} {credential.password}")
                     print('\n')
             else:
                 print('\n')
@@ -144,7 +144,14 @@ def main():
                 print("account name does not exist")  
 
         elif short_code == 'gp':
-            print(pw_gen(int(input('How many characters in your password?'))))   
+            print("enter account name")
+            account_name=input()
+            print(pw_gen(int(input('How many characters in your password?')))) 
+            password=input()  
+            save_credentials(create_credential(account_name,password))
+            print('\n')
+            print(f"new password {account_name}  {password} created")
+            print('\n') 
 
 
         elif short_code == "ex":
