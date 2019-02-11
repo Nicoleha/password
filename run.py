@@ -60,10 +60,39 @@ def main():
     l_name = input()
 
     print("Create Password ...")
-    p_number = input()
+    cr_pw = input()
 
     print("Confirm Password ...")
-    e_address = input()
+    fi_pw = input()
+
+
+    if cr_pw == fi_pw:
+        print("account successfully created")
+    else:
+        print("password incorrect")  
+
+    while True:
+        print("Use these short codes: cp - create a new new password"," dp - display created password ", " fd - find a password"," ex - exit app")    
+        
+        short_code=input().lower()
+
+        if short_code == 'cp':  
+            print("New Contact")
+            print("-"*10)
+
+            print("Account name ...")
+            acc_name=input()
+
+            print("password ...")
+            password=input()
+
+            save_credentials(create_credential(acc_name,password))
+            print('\n')
+            print(f"new password {acc_name}  {password} created")
+            print('\n')    
+
+
+
 
 if __name__ == '__main__':
 
