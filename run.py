@@ -78,7 +78,7 @@ def main():
         print("password incorrect")  
 
     while True:
-        print("Use these short codes: cp - create a new new password"," dp - display created password ", " fd - find a password"," ex - exit app")    
+        print("Use these short codes: cp - create a new new password"," dp - display created password ", " fp - find a password"," ex - exit app")    
         
         short_code=input().lower()
 
@@ -95,7 +95,21 @@ def main():
             save_credentials(create_credential(account_name,password))
             print('\n')
             print(f"new password {account_name}  {password} created")
-            print('\n')  
+            print('\n') 
+
+        elif short_code=='dp':
+            if display_credentials():
+                print("here is a list of all your contacts")
+                print('\n')
+
+                for credential in display_credentials():
+                    print(f"{credential.account_name}  {credential.password}")
+                    print('\n')
+            else:
+                print('\n')
+                print("You dont seem to have any password saved yet")
+                print('\n')
+
 
         elif short_code == 'fp':
             print("enter the name of the accoutn you want to search password for:")
