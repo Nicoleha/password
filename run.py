@@ -123,6 +123,15 @@ def main():
             else:
                 print("account name does not exist")
 
+        elif short_code == 'dp':
+            print("enter name of the account you wish to delete")
+            account_name=(input)
+            if del_credentials(account_name):
+                account_name=del_credentials(account_name) 
+                print("credential deleted")
+            else:
+                print("account name does not exist")          
+
 
         elif short_code == "ex":
             print("Bye .......")
