@@ -45,6 +45,12 @@ def display_credentials():
     '''
     return Credential.display_credentials()
 
+def check_existing_credentials(name):
+    '''
+     Function that check if a credential exists with that account name and return a Boolean
+    '''
+    return Credential.credential_exist(name)
+
 
 def main():
     print("Welcome to password locker app.What is your name?")
@@ -81,22 +87,34 @@ def main():
             print("-"*10)
 
             print("Account name ...")
-            acc_name=input()
+            account_name=input()
 
             print("password ...")
             password=input()
 
-            save_credentials(create_credential(acc_name,password))
+            save_credentials(create_credential(account_name,password))
             print('\n')
-            print(f"new password {acc_name}  {password} created")
+            print(f"new password {account_name}  {password} created")
             print('\n')  
 
         elif short_code == 'fp':
             print("enter the name of the accoutn you want to search password for:")
+            search_name=input()
+            if check_existing_credentials(search_name):
+                search_name=find_credential(search_name)
+                print(f"{search_name.first_name} {search_name.last_name}")
+                print('-'*20)
+
+                print(f"account name ........ {search_name.account_name}")
+            else:
+                print("account name does not exist")
 
 
-
-
+        elif short_code == "ex":
+            print("Bye .......")
+            break
+        else:
+            print("I really didn't get that. Please use the short codes")
 
 if __name__ == '__main__':
 
