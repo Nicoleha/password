@@ -22,8 +22,8 @@ class User:
         self.confirm_pw= confirm_pw
     
     user_list=[]
-    def save_user(self):
+    def login_user(self):
         '''
-        save_user method saves contact object into user_list
+        login_user method saves contact object into user_list
         '''
         User.user_list.append(self)

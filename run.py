@@ -16,5 +16,9 @@ def create_credential(acc_name,password):
     new_credential=Credential(acc_name,password)
     return new_credential
 
-def save_users(user):
-       
+def login_users(user):
+    '''
+    function to login user 
+    '''
+    user.login_user()
+    

@@ -24,12 +24,12 @@ class TestUser(unittest.TestCase):
         self.assertEqual(self.new_user.create_pw,"term00")
         self.assertEqual(self.new_user.confirm_pw,"term00")
 
-    def test_save_user(self):
+    def test_login_user(self):
         '''
-        test_save_user test case to test if the user object is saved into
+        test_login_user test case to test if the user object is saved into
          the user list
         '''
-        self.new_user.save_user() 
+        self.new_user.login_user() 
         self.assertEqual(len(User.user_list),1)
     
     
