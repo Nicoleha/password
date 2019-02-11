@@ -89,7 +89,11 @@ def main():
             save_credentials(create_credential(acc_name,password))
             print('\n')
             print(f"new password {acc_name}  {password} created")
-            print('\n')    
+            print('\n')  
+
+        elif short_code == 'fp':
+            print("enter the name of the accoutn you want to search password for:")
+
 
 
 
