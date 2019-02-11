@@ -21,4 +21,22 @@ def login_users(user):
     function to login user 
     '''
     user.login_user()
+
+def save_credentials(credential):
+    '''
+    function to login user 
+    '''
+    credential.save_credential()
+
+def del_credentials(Credential):
+    '''
+    function to delete delete credentials
+    '''
+    credential.delete_credential()
+
+def find_credential(name):
+    '''
+    function that finds a credential by name and returns the contact
+    '''
+    return Credential.find_by-name(name)    
     
