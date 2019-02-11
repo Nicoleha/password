@@ -21,3 +21,9 @@ class User:
         self.create_pw = create_pw
         self.confirm_pw= confirm_pw
     
+    user_list=[]
+    def save_user(self):
+        '''
+        save_user method saves contact object into user_list
+        '''
+        User.user_list.append(self)
