@@ -78,7 +78,7 @@ def main():
         print("password incorrect")  
 
     while True:
-        print("Use these short codes: cp - create a new new password"," dp - display created password ", " fp - find a password"," ex - exit app")    
+        print("Use these short codes: cp - create a new new password"," dp - display created password ", " fp - find a password"," ex - exit app", "delp - to delete contact")    
         
         short_code=input().lower()
 
@@ -123,11 +123,15 @@ def main():
             else:
                 print("account name does not exist")
 
-        elif short_code == 'dp':
+        elif short_code == 'delp':
             print("enter name of the account you wish to delete")
             account_name=(input)
-            if del_credentials(account_name):
-                account_name=del_credentials(account_name) 
+            if check_existing_credentials(account_name):
+                Credential =find_credential(account_name) 
+                del_credentials(Credential)
+                print(f"{credential.account_name} deleted")
+                print('\n')
+
                 print("credential deleted")
             else:
                 print("account name does not exist")          
