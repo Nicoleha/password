@@ -1,6 +1,8 @@
 #!/usr/bin/env python3.6
 from user import User
 from credential import Credential
+import string
+import random
 
 def create_user(fname,lname,cpw,fpw):
     '''
@@ -51,6 +53,9 @@ def check_existing_credentials(name):
     '''
     return Credential.credential_exist(name)
 
+def pw_gen(size = 8, chars=string.ascii_letters + string.digits + string.punctuation):
+	return ''.join(random.choice(chars) for _ in range(size))    
+
 
 def main():
     print("Welcome to password locker app.What is your name?")
@@ -78,7 +83,7 @@ def main():
         print("password incorrect")  
 
     while True:
-        print("Use these short codes: cp - create a new new password"," dp - display created password ", " fp - find a password"," ex - exit app", "delp - to delete contact")    
+        print("Use these short codes: cp - create a new new password"," dp - display created password ", " fp - find a password"," ex - exit app", "delp - to delete contact", "gp - generate password")    
         
         short_code=input().lower()
 
@@ -136,7 +141,10 @@ def main():
 
                 print("credential deleted")
             else:
-                print("account name does not exist")          
+                print("account name does not exist")  
+
+        elif short_code == 'gp':
+            print(pw_gen(int(input('How many characters in your password?'))))   
 
 
         elif short_code == "ex":
