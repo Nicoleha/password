@@ -28,7 +28,7 @@ def save_credentials(credential):
     '''
     credential.save_credential()
 
-def del_credentials(Credential):
+def del_credentials(credential):
     '''
     function to delete delete credentials
     '''
@@ -38,5 +38,20 @@ def find_credential(name):
     '''
     function that finds a credential by name and returns the contact
     '''
-    return Credential.find_by-name(name)    
+    return Credential.find_by_name(name)  
+
+def display_credentials():
+    '''function that returns all saved credentials
+    '''
+    return Credential.display_credentials()
+
+
+def main():
+    print("Welcome to password locker app.What is your name?")
+    user_name=input()
+
+    print(f"Hello {user_name}. To continue further you have to create an account")
+    print('\n')
+
+
     
