@@ -116,16 +116,18 @@ def main():
             search_name=input()
             if check_existing_credentials(search_name):
                 search_name=find_credential(search_name)
-                print(f"{search_name.first_name} {search_name.last_name}")
+                print(f"{search_name.account_name} {search_name.password}")
                 print('-'*20)
 
                 print(f"account name ........ {search_name.account_name}")
+                print(f"password ........ {search_name.password}")
             else:
                 print("account name does not exist")
 
         elif short_code == 'delp':
             print("enter name of the account you wish to delete")
             account_name=(input)
+
             if check_existing_credentials(account_name):
                 Credential =find_credential(account_name) 
                 del_credentials(Credential)
