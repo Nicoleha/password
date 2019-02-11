@@ -53,5 +53,21 @@ def main():
     print(f"Hello {user_name}. To continue further you have to create an account")
     print('\n')
 
+    print("first Name ...")
+    f_name=input()
+
+    print("Last name ...")
+    l_name = input()
+
+    print("Create Password ...")
+    p_number = input()
+
+    print("Confirm Password ...")
+    e_address = input()
+
+if __name__ == '__main__':
+
+    main()
+
 
     
