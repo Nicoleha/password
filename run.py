@@ -3,6 +3,8 @@ from user import User
 from credential import Credential
 import string
 import random
+import sys 
+
 
 def create_user(fname,lname,cpw,fpw):
     '''
@@ -38,7 +40,7 @@ def del_credentials(credential):
 
 def find_credential(name):
     '''
-    function that finds a credential by name and returns the contact
+    function that finds a credential by name and returns the password
     '''
     return Credential.find_by_name(name)  
 
@@ -58,17 +60,18 @@ def pw_gen(size = 8, chars=string.ascii_letters + string.digits + string.punctua
 
 
 def main():
-    print("Welcome to password locker app.What is your name?")
-    user_name=input()
-
-    print(f"Hello {user_name}. To continue further you have to create an account")
+    print("Welcome to password locker app.Enter your first and last name please?")
     print('\n')
-
+   
     print("first Name ...")
     f_name=input()
 
     print("Last name ...")
     l_name = input()
+
+    print(f"Hello {f_name}  {l_name}. To continue further you have to create a password and confirm it!")
+    print('\n')
+
 
     print("Create Password ...")
     cr_pw = input()
@@ -76,19 +79,21 @@ def main():
     print("Confirm Password ...")
     fi_pw = input()
 
+    login_users(create_user(f_name,l_name,cr_pw,fi_pw)) 
 
     if cr_pw == fi_pw:
-        print("account successfully created")
+        print(f"account for {f_name}  {l_name}  successfully created ")
     else:
-        print("password incorrect")  
+        print(f"password {cr_pw} or {fi_pw} incorrect. Next time , Please confirm the password correctly.")  
+        sys.exit()
 
     while True:
-        print("Use these short codes: cp - create a new new password"," dp - display created password ", " fp - find a password"," ex - exit app", "delp - to delete contact", "gp - generate password")    
+        print("Use these short codes: cp - create a new password"," dp - display created password ", " fp - find a password", "delp - to delete password", "gp - generate password"," ex - exit app")    
         
         short_code=input().lower()
 
         if short_code == 'cp':  
-            print("New Contact")
+            print("New Password")
             print("-"*10)
 
             print("Account name ...")
@@ -99,12 +104,12 @@ def main():
 
             save_credentials(create_credential(account_name,password))
             print('\n')
-            print(f"new password {account_name}  {password} created")
+            print(f"new password for {account_name} : {password} created")
             print('\n') 
 
         elif short_code=='dp':
             if display_credentials():
-                print("here is a list of all your contacts")
+                print("here is a list of all your passwords")
                 print('\n')
 
                 for credential in display_credentials():
@@ -131,26 +136,28 @@ def main():
 
         elif short_code == 'delp':
             print("enter name of the account you wish to delete")
-            account_name=(input)
+            search_name=input()
 
-            if check_existing_credentials(account_name):
-                Credential =find_credential(account_name) 
+            if check_existing_credentials(search_name):
+                Credential =find_credential(search_name) 
                 del_credentials(Credential)
-                print(f"{credential.account_name} deleted")
+                print(f"{Credential.account_name} deleted")
                 print('\n')
 
-                print("credential deleted")
+                print("credential and password deleted")
             else:
                 print("account name does not exist")  
 
         elif short_code == 'gp':
             print("enter account name")
             account_name=input()
-            print(pw_gen(int(input('How many characters in your password?')))) 
-            password=input()  
+            print("enter length of the password you wish to generate(enter number)")
+            size=int(input())
+            password=pw_gen(size)
+
             save_credentials(create_credential(account_name,password))
             print('\n')
-            print(f"new password {account_name}  {password} created")
+            print(f"new password {password} created")
             print('\n') 
 
 
