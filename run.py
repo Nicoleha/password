@@ -64,9 +64,11 @@ def main():
     print('\n')
    
     print("first Name ...")
+    print("-"*10)
     f_name=input()
 
     print("Last name ...")
+    print("-"*10)
     l_name = input()
 
     print(f"Hello {f_name}  {l_name}. To continue further you have to create a password and confirm it!")
@@ -74,9 +76,11 @@ def main():
 
 
     print("Create Password ...")
+    print("-"*10)
     cr_pw = input()
 
     print("Confirm Password ...")
+    print("-"*10)
     fi_pw = input()
 
     login_users(create_user(f_name,l_name,cr_pw,fi_pw)) 
@@ -87,22 +91,33 @@ def main():
     else:
         print(f"password {cr_pw} or {fi_pw} incorrect. Next time , Please confirm the password correctly.")  
         sys.exit()
-        
-    print("now let procceed to login to our account")
-    print('\n')
-    print("enter your first name (the name must the same to the as the first name you entered previously ):")
-    print('\n')
-    print("enter first name")
-    login_name=input()
-    print("enter password")
-    passw=input()
-    
-    if fi_pw==passw and f_name==login_name:
-        print("successfully logged in")
+    print("Use these short codes: lg - login "," ex - exit the app")  
+
+    short_code=input().lower()
+
+    if short_code == 'lg': 
+        print("now let procceed to login to our account")
         print('\n')
-    else:
-        print(f"password: {passw} or name: {login_name} incorrect. Next time , Please confirm the password correctly.")  
-        sys.exit()   
+        print("*"*25)
+        print("enter your first name (the name must the same to the as the first name you entered previously ):")
+        print('*'*25)
+        print('\n')
+        print("enter first name")
+        print("-"*10)
+        login_name=input()
+        print("enter password")
+        print("-"*10)
+        passw=input()
+    
+        if fi_pw==passw and f_name==login_name:
+            print("successfully logged in")
+            print('\n')
+        else:
+            print(f"password: {passw} or name: {login_name} incorrect. Next time , Please confirm the password correctly.")  
+            sys.exit()   
+    elif short_code=='ex':
+        print("Bye .......")
+        sys.exit()
 
     while True:
         print("Use these short codes: cp - create a new password"," dp - display created password ", " fp - find a password", "delp - to delete password", "gp - generate password"," ex - exit app")    
@@ -114,9 +129,11 @@ def main():
             print("-"*10)
 
             print("Account name ...")
+            print("-"*10)
             account_name=input()
 
             print("password ...")
+            print("-"*10)
             password=input()
 
             save_credentials(create_credential(account_name,password))
