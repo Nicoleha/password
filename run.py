@@ -83,9 +83,26 @@ def main():
 
     if cr_pw == fi_pw:
         print(f"account for {f_name}  {l_name}  successfully created ")
+        print('\n')
     else:
         print(f"password {cr_pw} or {fi_pw} incorrect. Next time , Please confirm the password correctly.")  
         sys.exit()
+        
+    print("now let procceed to login to our account")
+    print('\n')
+    print("enter your first name (the name must the same to the as the first name you entered previously ):")
+    print('\n')
+    print("enter first name")
+    login_name=input()
+    print("enter password")
+    passw=input()
+    
+    if fi_pw==passw and f_name==login_name:
+        print("successfully logged in")
+        print('\n')
+    else:
+        print(f"password: {passw} or name: {login_name} incorrect. Next time , Please confirm the password correctly.")  
+        sys.exit()   
 
     while True:
         print("Use these short codes: cp - create a new password"," dp - display created password ", " fp - find a password", "delp - to delete password", "gp - generate password"," ex - exit app")    
